@@ -13,7 +13,7 @@
     <dependency>
       <groupId>com.serena</groupId>
       <artifactId>SerenaDeploy-common</artifactId>
-      <version>1.0.3</version>
+      <version>${project.parent.version}</version>
       <scope>compile</scope>
     </dependency>
 

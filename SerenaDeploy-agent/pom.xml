@@ -13,7 +13,7 @@
     <dependency>
       <groupId>com.serena</groupId>
       <artifactId>SerenaDeploy-common</artifactId>
-      <version>1.0.3</version>
+      <version>${project.parent.version}</version>
       <scope>compile</scope>
     </dependency>
 
@@ -58,25 +58,25 @@
     <dependency>
       <groupId>com.urbancode.vfs</groupId>
       <artifactId>serenara-client</artifactId>
-      <version>CURRENT</version>
+      <version>${sda-version}</version>
     </dependency>
 
     <dependency>
       <groupId>com.urbancode.vfs</groupId>
       <artifactId>serenara-vfs</artifactId>
-      <version>CURRENT</version>
+      <version>${sda-version}</version>
     </dependency>
 
     <dependency>
       <groupId>com.urbancode.vfs</groupId>
       <artifactId>commons-fileutils</artifactId>
-      <version>CURRENT</version>
+      <version>${sda-version}</version>
     </dependency>
 
     <dependency>
       <groupId>com.urbancode.vfs</groupId>
       <artifactId>commons-util</artifactId>
-      <version>CURRENT</version>
+      <version>${sda-version}</version>
     </dependency>
 
   </dependencies>

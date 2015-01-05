@@ -31,13 +31,12 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="SerenaDeploy-agent" target="1.5" />
-      <module name="SerenaDeploy-common" target="1.5" />
-      <module name="SerenaDeploy-server" target="1.5" />
+      <module name="SerenaDeploy-agent" target="1.6" />
+      <module name="SerenaDeploy-common" target="1.6" />
+      <module name="SerenaDeploy-server" target="1.6" />
       <module name="SRADeploy-agent" target="1.5" />
       <module name="SRADeploy-common" target="1.5" />
       <module name="SRADeploy-server" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>
-
