@@ -270,9 +270,10 @@ public class SerenaDeployBuildProcess extends FutureBasedBuildProcess
 
                     for (ClientPathEntry entry : entries) {
                         File entryFile = new File(workDir, entry.getPath());
-                        logger.progressMessage("Adding " + entry.getPath() + " to staging directory...");
+
                         client.addFileToStagingDirectory(stageId, entry.getPath(), entryFile);
                     }
+                    logger.progressMessage("Added " + entries.length + " files to staging directory...");
 
                     String componentDetails[] = sraHelper.getComponentRepositoryId(componentName);
                     componentId = componentDetails[0];
@@ -312,14 +313,10 @@ public class SerenaDeployBuildProcess extends FutureBasedBuildProcess
             //
             if (addPropertiesToVersion) {
                 logger.targetStarted("Adding properties to Version");
-                /*String tcBuildNumber = getConfigParameter("build.number");
-                logger.progressMessage("Applying TeamCity build number " + tcBuildNumber + " to version");
-                String tcVcNumber = getConfigParameter("build.vcs.number");
-                logger.progressMessage("Applying TeamCity version control number " + tcVcNumber + " to version");*/
 
                 // get property sheet id
                 String propSheetId = sraHelper.getComponentVersionPropsheetId(verId);
-                logger.progressMessage("Found component version property sheet id: " + propSheetId);
+                //logger.progressMessage("Found component version property sheet id: " + propSheetId);
 
                 // put properties
                 //String compVerPropsBody = "{\"build.number\":\"" + tcBuildNumber + "\"" + ", \"build.vcs.number\":\"" + tcVcNumber + "\"}";
@@ -327,7 +324,7 @@ public class SerenaDeployBuildProcess extends FutureBasedBuildProcess
                         + propSheetId + ".-1/allPropValues";
                 uriBuilder = UriBuilder.fromPath(sraUrl).path("property").path("propSheet").path(encodedPropSheetId);
                 uri = uriBuilder.build();
-                logger.progressMessage("Calling URI \"" + uri.toString() + "\" with body " + jsonVersionProperties);
+                //logger.progressMessage("Calling URI \"" + uri.toString() + "\" with body " + jsonVersionProperties);
                 sraHelper.executeJSONPut(uri, jsonVersionProperties);
 
                 logger.targetFinished("Adding properties to Version");
@@ -360,7 +357,7 @@ public class SerenaDeployBuildProcess extends FutureBasedBuildProcess
                     deployApplication, deployEnvironment, deployProcess);
             JSONObject deployObj = new JSONObject(deployJson);
             String requestId = deployObj.getString("requestId");
-            logger.progressMessage("Deployment request URI is: " + sraUrl + "/#applicationProcessRequest/" + requestId);
+            logger.progressMessage("Deployment request URI is: " + sraUrl + "/app#/application-process-request/" + requestId + "/log");
             logger.targetFinished("Deploying Version");
         }
 
